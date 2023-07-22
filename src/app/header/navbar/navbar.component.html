@@ -1,19 +1,16 @@
 <mat-toolbar color="primary">
-  <div class="container d-flex">
-    <span>Cine Metrópole III</span>
-    <div >
-      <button mat-raised-button>
+    <div class="container d-flex">
+      <h1 class="m-0 me-5">Cine Metrópole III</h1>
+      <button mat-raised-button color="accent" routerLink='/filmes/listaFilmes'>
         Lista Filmes
       </button>
-      <button mat-raised-button>
+      <button class="mx-3" mat-raised-button color="accent" routerLink='filmes/addFilme'>
         Cadastrar Filme
       </button>
-    </div>
-    <div>
-      <button mat-raised-button>
+    
+      <button mat-flat-button color="accent">
         Login
       </button>
+      
     </div>
-    <!-- <span class="example-spacer"></span> -->
-  </div>
-  </mat-toolbar>
+    </mat-toolbar>
