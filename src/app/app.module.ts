@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HeaderModule } from './header/header.module';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginModule } from './login/login.module';
 
 
   @NgModule({
@@ -20,6 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
     NgbModule,
     HeaderModule,
     HttpClientModule,
+    LoginModule,
     
 
   ],
