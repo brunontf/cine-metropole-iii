@@ -19,6 +19,7 @@ export class ListaFilmesComponent implements OnInit {
   
   dataSource!: MatTableDataSource<Filme, MatTableDataSourcePaginator>;
   displayedColumns: string[] = ['id', 'imagem', 'titulo', 'sinopse','actions'];
+  isLoggedIn = sessionStorage.getItem('auth');
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;

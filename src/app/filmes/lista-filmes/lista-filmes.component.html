@@ -37,14 +37,14 @@
         <ng-container matColumnDef="actions">
           <th mat-header-cell *matHeaderCellDef>Ações</th>
           <td mat-cell *matCellDef="let element">
-            <button
+            <button [disabled]="!isLoggedIn"
               mat-icon-button
               color="primary"
               [routerLink]="['/filmes/edit', element.id]"
             >
               <mat-icon>edit</mat-icon>
             </button>
-            <button
+            <button [disabled]="!isLoggedIn"
               mat-icon-button
               color="warn"
               (click)="deleteFilme(element.id)"
