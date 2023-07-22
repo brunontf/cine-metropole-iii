@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {MatTableDataSource, MatTableDataSourcePaginator} from '@angular/material/table';
 import { Filme } from 'src/app/model/Filme.model';
 import { FilmesServiceService } from '../filmes-service.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -11,7 +12,7 @@ import { FilmesServiceService } from '../filmes-service.service';
 })
 export class ListaFilmesComponent implements OnInit {
 
-  constructor(private _service:FilmesServiceService){}
+  constructor(private _service:FilmesServiceService, private _snackBar:MatSnackBar){}
 
   ngOnInit(): void {
     this.getAllFilmes();
@@ -34,8 +35,19 @@ export class ListaFilmesComponent implements OnInit {
   }
   
   deleteFilme(id:number):void{
-    this._service.deleteMovieById(id).subscribe(()=>{
-      this.getAllFilmes();
+    if(window.confirm("Deseja Mesmo Excluir o Filme ?")){
+      this._service.deleteMovieById(id).subscribe(()=>{
+        this.getAllFilmes();
+        this.openSnackBar('Filme Deletado Com Sucesso!');
+      });
+    }
+  }
+
+  openSnackBar(msg:string) {
+    this._snackBar.open(msg, 'Ok', {
+      horizontalPosition: 'center',
+      verticalPosition:  'top',
+      duration: 2000,
     });
   }
   

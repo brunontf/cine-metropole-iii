@@ -1,4 +1,5 @@
 import { inject } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRouteSnapshot, CanActivateFn, Router, RouterStateSnapshot } from '@angular/router';
 
 export const AuthGuard: CanActivateFn = (
@@ -6,11 +7,17 @@ export const AuthGuard: CanActivateFn = (
   state: RouterStateSnapshot
 ) => {
   let router = inject(Router);
+  let _snackBar = inject(MatSnackBar);
 
   if (sessionStorage.getItem('auth')) {
     return true;
   } else {
-    console.error('Erro', 'Faça login novamente');
+    _snackBar.open('Você Precisa Estar Logado Para Continuar!', '', {
+      horizontalPosition: 'center',
+      verticalPosition:  'top',
+      duration: 2000
+    });
     return router.parseUrl('/login');
   }
+
 };

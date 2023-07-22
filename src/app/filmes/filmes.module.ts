@@ -9,6 +9,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FilmesRoutingModule } from './filmes-routing.module';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 
 @NgModule({
@@ -25,7 +27,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatFormFieldModule,
     MatButtonModule,
     MatIconModule,
-    
+    MatSnackBarModule,
+    MatTooltipModule,
     
   ]
 })

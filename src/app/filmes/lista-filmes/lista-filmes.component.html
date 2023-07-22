@@ -41,6 +41,7 @@
               mat-icon-button
               color="primary"
               [routerLink]="['/filmes/edit', element.id]"
+              matTooltip="Editar Filme" matTooltipPosition="above"
             >
               <mat-icon>edit</mat-icon>
             </button>
@@ -48,6 +49,7 @@
               mat-icon-button
               color="warn"
               (click)="deleteFilme(element.id)"
+              matTooltip="Deletar Filme" matTooltipPosition="above"
             >
               <mat-icon>delete</mat-icon>
             </button>

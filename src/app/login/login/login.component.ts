@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from '../login.service';
 import { Router } from '@angular/router';
-import { take } from 'rxjs';
+import { MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +11,8 @@ import { take } from 'rxjs';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private _fb:FormBuilder, private _service:LoginService, private router: Router){}
+  constructor(private _fb:FormBuilder, private _service:LoginService, private router: Router, 
+              private _snackBar: MatSnackBar){}
 
   ngOnInit(): void {
     this.createForm();
@@ -31,28 +32,18 @@ export class LoginComponent implements OnInit {
     let { email, password } = this.loginForm.value;
 
     this._service.login(email,password).subscribe(()=>{
-      sessionStorage.setItem('auth','true')
+      sessionStorage.setItem('auth','true');
+      this.openSnackBar();
       this.router.navigate(['/filmes/listaFilmes']);
     });
+  }
 
-    // this._service
-    //   .login(email, password)
-    //   .pipe(take(1))
-    //   .subscribe({
-    //     next: (value) => {
-    //       console.log(value.auth);
-          
-    //       sessionStorage.setItem('auth', String(value.auth));
-    //       this.router.navigate(['/cats/search']);
-    //     },
-        // error: (err: HttpErrorResponse) => {
-        //   if (err.status == 401) {
-        //     this.toast.error('Erro!', 'Usuário ou senha inválidos!');
-        //   } else {
-        //     this.toast.error('Erro!', 'Ocorreu um erro, teste novamente!');
-        //   }
-        // },
-      // });
+  openSnackBar() {
+    this._snackBar.open('Login Realizado com Sucesso', 'Ok', {
+      horizontalPosition: 'center',
+      verticalPosition:  'top',
+      duration: 2000
+    });
   }
     
 
