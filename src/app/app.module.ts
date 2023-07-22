@@ -8,6 +8,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HeaderModule } from './header/header.module';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginModule } from './login/login.module';
+import { SharedModule } from './shared/shared.module';
 
 
   @NgModule({
@@ -22,6 +23,7 @@ import { LoginModule } from './login/login.module';
     HeaderModule,
     HttpClientModule,
     LoginModule,
+    SharedModule,
     
 
   ],
