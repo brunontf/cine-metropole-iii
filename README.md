@@ -1,4 +1,5 @@
-# CineMetropoleIii
+# Cine Metropole III
+database at src/assets - use JsonServer to server
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.5.
 
